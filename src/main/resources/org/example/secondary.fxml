@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.SecondaryController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="secondaryButton" layoutX="19.0" layoutY="27.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="20.0" prefWidth="42.0" text="Home">
+         <font>
+            <Font size="9.0" />
+         </font></Button>
+      <Button layoutX="61.0" layoutY="27.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Organization">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="128.0" layoutY="27.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" text="Mindfulness">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <SplitPane dividerPositions="0.56438127090301" layoutX="125.0" layoutY="52.0" prefHeight="348.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <AnchorPane layoutX="221.0" layoutY="201.0" prefHeight="56.0" prefWidth="90.0">
+                     <children>
+                        <Button layoutX="27.0" layoutY="27.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="34.0" text="GO!" textFill="#0d0d0d">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                        <Text fill="#140101" layoutX="6.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREATE A GANTT CHART" wrappingWidth="78.82177734375">
+                           <font>
+                              <Font size="7.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <Text layoutX="16.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's get things done!" underline="true" wrappingWidth="198.0322265625">
+                     <font>
+                        <Font name="Monaco" size="15.0" />
+                     </font>
+                  </Text>
+                  <DatePicker layoutX="239.0" layoutY="145.0" prefHeight="17.0" prefWidth="50.0" />
+                  <TabPane layoutX="19.0" layoutY="70.0" prefHeight="30.0" prefWidth="186.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Daily">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                      <Tab text="Weekly">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                        <Tab text="Monthly">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <TitledPane animated="false" layoutX="237.0" layoutY="25.0" prefHeight="72.0" prefWidth="57.0" text="Notes" />
+                  <TableView layoutX="19.0" layoutY="108.0" prefHeight="171.0" prefWidth="184.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" />
+                      <TableColumn prefWidth="75.0" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="346.0" prefWidth="273.0">
+               <children>
+                  <Button fx:id="tasksButton" layoutX="41.0" layoutY="33.0" mnemonicParsing="false" onAction="#switchToFourth" text="MY TASKS" />
+                  <Text layoutX="26.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CLICK TO ACCESS FULL VIEW OF TASKS" wrappingWidth="107.267578125">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Text>
+                  <ListView layoutX="20.0" layoutY="88.0" prefHeight="186.0" prefWidth="195.0" />
+                  <Pane layoutX="171.0" layoutY="8.0" prefHeight="70.0" prefWidth="68.0">
+                     <children>
+                        <ChoiceBox layoutX="4.0" layoutY="37.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="12.0" prefWidth="60.0" />
+                        <Text layoutX="4.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By closest due date">
+                           <font>
+                              <Font size="6.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="4.0" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By course">
+                           <font>
+                              <Font size="6.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="21.0" layoutY="54.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Filter">
+                           <font>
+                              <Font size="7.0" />
+                           </font>
+                        </Button>
+                        <ChoiceBox layoutX="3.0" layoutY="12.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="12.0" prefWidth="60.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <ProgressBar layoutX="226.0" layoutY="364.0" prefHeight="11.0" prefWidth="162.0" progress="0.0" />
+      <Button layoutX="413.0" layoutY="361.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" text="POMODORO TIMER">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Text layoutX="146.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TASK PROGRESS" underline="true">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Text>
+      <Circle fill="#e1e1e1" layoutX="560.0" layoutY="374.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>
