@@ -1,10 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.FourthController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.FourthController">
    <children>
-      <Button fx:id="fourth" layoutX="113.0" layoutY="152.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Button" />
+      <Button layoutX="533.0" layoutY="518.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="158.0" text="POMODORO TIMER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Circle fill="#e1e1e1" layoutX="741.0" layoutY="537.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
+      <AnchorPane fx:id="fourthScreen" layoutX="-2.0" layoutY="1.0" prefHeight="44.0" prefWidth="323.0">
+         <children>
+            <Button layoutX="10.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="27.0" prefWidth="95.0" text="Home">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="fourth" layoutX="111.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Organization">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="20.0" layoutY="115.0" prefHeight="378.0" prefWidth="752.0">
+         <children>
+            <TableView layoutX="165.0" layoutY="89.0" prefHeight="378.0" prefWidth="752.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn prefWidth="217.78722381591797" text="Task" />
+                <TableColumn minWidth="0.0" prefWidth="46.47267150878906" text="Icon" />
+                  <TableColumn minWidth="6.2188568115234375" prefWidth="64.1990966796875" text="Urgency" />
+                  <TableColumn prefWidth="105.01980590820312" text="Course" />
+                  <TableColumn prefWidth="80.89974975585938" text="Given date" />
+                  <TableColumn prefWidth="82.36627197265625" text="Due date" />
+                  <TableColumn prefWidth="73.97265625" text="Completed?" />
+                  <TableColumn prefWidth="81.02734375" text="Edit" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
    </children>
+      <Button fx:id="addTaskButton" layoutX="624.0" layoutY="48.0" mnemonicParsing="false" onAction="#clickOpenWindow" text="ADD TASK" />
+      <Text layoutX="83.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MY TASKS" />
 </AnchorPane>

@@ -16,4 +16,15 @@ public class SecondaryController {
     private void switchToFourth() throws IOException {
         App.setRoot("fourth");
     }
+
+    @FXML
+    private void switchToFifth() throws IOException {
+        App.setRoot("fifth");
+    }
+
+    @FXML
+    private void switchToThird() throws IOException {
+        App.setRoot("third");
+
+    }
 }

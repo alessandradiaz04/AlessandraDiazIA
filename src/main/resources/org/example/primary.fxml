@@ -8,27 +8,34 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PrimaryController">
    <children>
-      <Button fx:id="organization" layoutX="84.0" layoutY="241.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Organization">
+      <Button fx:id="organization" layoutX="75.0" layoutY="297.0" mnemonicParsing="false" onAction="#switchToSecondary" prefHeight="66.0" prefWidth="189.0" text="Organization">
          <font>
             <Font name="Noteworthy Light" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="mindfulness" layoutX="455.0" layoutY="243.0" mnemonicParsing="false" onAction="#switchToThird" text="Mindfulness" />
-      <Text layoutX="138.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!">
+      <Button fx:id="mindfulness" layoutX="525.0" layoutY="302.0" mnemonicParsing="false" onAction="#switchToThird" prefHeight="66.0" prefWidth="189.0" text="Mindfulness">
          <font>
-            <Font name="Monospaced Regular" size="40.0" />
-         </font>
-      </Text>
-      <Circle fill="#f8f53b85" layoutX="484.0" layoutY="150.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
-      <Text layoutX="478.0" layoutY="156.0" rotate="88.6" strokeType="OUTSIDE" strokeWidth="0.0" text=":  )" />
+            <Font size="14.0" />
+         </font></Button>
+      <Circle fill="#f8f53b85" layoutX="658.0" layoutY="173.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
       <ColorPicker layoutX="20.0" layoutY="25.0" prefHeight="27.0" prefWidth="98.0" />
-      <Text layoutX="274.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quote of the day:" wrappingWidth="88.1030353662556">
+      <Text layoutX="318.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quote of the day:" wrappingWidth="188.01310006352122">
          <font>
-            <Font name="Noteworthy Light" size="11.0" />
+            <Font name="Noteworthy Light" size="24.0" />
          </font>
       </Text>
-      <TextField layoutX="240.0" layoutY="291.0" />
+      <TextField layoutX="276.0" layoutY="487.0" prefHeight="26.0" prefWidth="244.0" />
+      <Text layoutX="634.0" layoutY="198.0" rotate="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":  )" wrappingWidth="53.94852295440381" y="1.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="127.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!">
+         <font>
+            <Font name="Monospaced Regular" size="64.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
