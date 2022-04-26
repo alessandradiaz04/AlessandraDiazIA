@@ -49,15 +49,14 @@ public class FourthController {
     public TableColumn completedColumn;
 
     private NGGroup root;
-    private Object courseChoiceBox;
     ObservableList<Course> courses = FXCollections.observableArrayList();
 
     public void initialize() throws IOException {
-        taskColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("taskName"));
-        urgencyColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("urgency"));
-        courseColumn.setCellValueFactory(new PropertyValueFactory<Task,String>( "course"));
-        givenDateColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("givenDate"));
-        dueDateColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("dueDate"));
+        taskColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskName"));
+        urgencyColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("urgency"));
+        courseColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("course"));
+        givenDateColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("givenDate"));
+        dueDateColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("dueDate"));
         completedColumn.setCellFactory(CheckBoxTableCell.forTableColumn(completedColumn));
         taskTable.setItems(tasks);
         taskTable.setEditable(true);
@@ -83,11 +82,8 @@ public class FourthController {
         makeDialog();
     }
 
-    public void makeCourse(){
-        makeCourseDialog();
 
-    }
-    public void makeCourseDialog(){
+    public void makeCourseDialog() {
 
         Dialog<Task> dialog = new Dialog<>();
         dialog.initModality(Modality.NONE);
@@ -117,15 +113,15 @@ public class FourthController {
         btOk.addEventFilter(
                 ActionEvent.ACTION,
                 event -> {
-                    if(!(courseNameBox.getText().equals("") && !teacherNameBox.getText().equals("")))
+                    if (!(courseNameBox.getText().equals("") && !teacherNameBox.getText().equals("")))
                     // if all your fields and things ARENT EMPTY
                     {
                         //read them all text fields and make a new object. Add it to your list of objects for the courses.
                         //courses.add(new Course(courseNameBox.getText(), teacherNameBox.getText()));
 
-                        courses.add(new Course(courseNameBox.getText(),teacherNameBox.getText()));
+                        courses.add(new Course(courseNameBox.getText(), teacherNameBox.getText()));
 
-                    }else{ //else if some text field is empty or incorrect. give them an error message
+                    } else { //else if some text field is empty or incorrect. give them an error message
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Incorrect input");
                         alert.setHeaderText(null);
@@ -144,7 +140,7 @@ public class FourthController {
     }
 
 
-    public void makeDialog(){
+    public void makeDialog() {
         Dialog<Task> dialog = new Dialog<>();
         dialog.initModality(Modality.NONE);
         Stage stage = (Stage) App.getScene().getWindow();
@@ -178,20 +174,23 @@ public class FourthController {
         courseChoiceBox.getItems().addAll(courses);
         courseChoiceBox.getItems().add("Create new course");
 
+        System.out.println(courses);
 
         String value = (String) courseChoiceBox.getValue();
         courseChoiceBox.setOnAction((event) -> {
-            if(courseChoiceBox.getSelectionModel().getSelectedIndex()== courseChoiceBox.getHeight())
-                makeCourse();
-            System.out.println(courses.size());
+            if (courseChoiceBox.getSelectionModel().getSelectedIndex() == courseChoiceBox.getItems().size()-1) {
+                makeCourseDialog();
 
-            int selectedIndex = courseChoiceBox.getSelectionModel().getSelectedIndex();
-            Object selectedItem = courseChoiceBox.getSelectionModel().getSelectedItem();
+                int selectedIndex = courseChoiceBox.getSelectionModel().getSelectedIndex();
+                Object selectedItem = courseChoiceBox.getSelectionModel().getSelectedItem();
 
-            //System.out.println("Selection made: [" + selectedIndex + "] " + selectedItem);
-            //System.out.println(" CourseChoiceBox.getValue(): " + courseChoiceBox.getValue());
-            /////courseChoiceBox.getSelectionModel().
-        makeCourseDialog();
+                //System.out.println("Selection made: [" + selectedIndex + "] " + selectedItem);
+                //System.out.println(" CourseChoiceBox.getValue(): " + courseChoiceBox.getValue());
+                /////courseChoiceBox.getSelectionModel().
+                courseChoiceBox.getItems().clear();
+                courseChoiceBox.getItems().addAll(courses);
+                courseChoiceBox.getItems().add("Create new course");
+            }
         });
 
 
@@ -203,7 +202,7 @@ public class FourthController {
 
 
         //add all the labels and text fields etc...
-        dialogPane.setContent(new VBox(titleLabel, taskLabel,taskNameBox,urgencyLabel, slider, courseLabel,courseChoiceBox, givenDateLabel,datePicker,dueDateLabel,datePickerTwo));
+        dialogPane.setContent(new VBox(titleLabel, taskLabel, taskNameBox, urgencyLabel, slider, courseLabel, courseChoiceBox, givenDateLabel, datePicker, dueDateLabel, datePickerTwo));
         //make an ok button
         final Button btOk = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
         //Create what you want it to do when you click the button
@@ -214,11 +213,11 @@ public class FourthController {
         btOk.addEventFilter(
                 ActionEvent.ACTION,
                 event -> {
-                    if(!(taskNameBox.getText().equals("") && !(courseChoiceBox.getSelectionModel().getSelectedIndex()<0) && datePicker!=null && datePickerTwo!=null))// if all your fields and things ARENT EMPTY
+                    if (!(taskNameBox.getText().equals("") && !(courseChoiceBox.getSelectionModel().getSelectedIndex() < 0) && datePicker != null && datePickerTwo != null))// if all your fields and things ARENT EMPTY
                     {
                         LocalDate date = LocalDate.of(2022, Month.APRIL, 8);
                         //read them all text fields and make a new object. Add it to your list of objects for the courses.
-                        tasks.add(new Task(taskNameBox.getText(), (int) slider.getValue(), (String) courseChoiceBox.getValue(), (LocalDate) datePicker.getUserData(),(LocalDate) datePickerTwo.getUserData()));
+                        tasks.add(new Task(taskNameBox.getText(), (int) slider.getValue(), (String) courseChoiceBox.getValue(), (LocalDate) datePicker.getUserData(), (LocalDate) datePickerTwo.getUserData()));
                         /**
                          try {
                          saveJson(new ActionEvent()); //try to save the json again so it keeps the new course.
@@ -226,7 +225,7 @@ public class FourthController {
                          e.printStackTrace();
                          }
                          **/
-                    }else{ //else if some text field is empty or incorrect. give them an error message
+                    } else { //else if some text field is empty or incorrect. give them an error message
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Incorrect input");
                         alert.setHeaderText(null);

@@ -24,4 +24,8 @@ public class Course {
         return teacherName;
     }
 
+    @Override
+    public String toString(){
+        return courseName;
     }
+ }
