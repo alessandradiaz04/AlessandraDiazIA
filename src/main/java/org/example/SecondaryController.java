@@ -2,7 +2,10 @@ package org.example;
 
 // ORGANIZATION TAB
 
+import java.awt.*;
 import java.io.IOException;
+import java.util.EnumSet;
+
 import javafx.fxml.FXML;
 
 public class SecondaryController {

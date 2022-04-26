@@ -2,11 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TitledPane?>
@@ -30,69 +27,25 @@
          </font>
       </Text>
       <Circle fill="#e1e1e1" layoutX="701.0" layoutY="538.0" radius="24.0" stroke="#a17f9a" strokeType="INSIDE" />
-    <AnchorPane layoutX="20.0" layoutY="51.0" minHeight="0.0" minWidth="0.0" prefHeight="429.0" prefWidth="410.0" style="-fx-background-color: #f2e6f1#f2e6f1;">
+    <AnchorPane layoutX="20.0" layoutY="51.0" minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="410.0" style="-fx-background-color: #f2e6f1#f2e6f1;">
          <children>
             <Text layoutX="16.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's get things done!" underline="true" wrappingWidth="198.0322265625">
                <font>
                   <Font name="Monaco" size="24.0" />
                </font>
             </Text>
-            <DatePicker layoutX="305.0" layoutY="141.0" prefHeight="17.0" prefWidth="50.0" />
-            <TabPane layoutX="13.0" layoutY="139.0" prefHeight="278.0" prefWidth="276.0" tabClosingPolicy="UNAVAILABLE">
-              <tabs>
-                <Tab text="Daily">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ead6e7#ead6e7;">
-                           <children>
-                              <TableView layoutX="10.0" layoutY="6.0" prefHeight="232.0" prefWidth="258.0">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="C1" />
-                                    <TableColumn prefWidth="75.0" text="C2" />
-                                 </columns>
-                              </TableView>
-                           </children></AnchorPane>
-                  </content>
-                </Tab>
-                <Tab text="Weekly">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ead6e7#ead6e7;">
-                           <children>
-                              <TableView layoutX="10.0" layoutY="6.0" prefHeight="232.0" prefWidth="258.0">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="C1" />
-                                    <TableColumn prefWidth="75.0" text="C2" />
-                                 </columns>
-                              </TableView>
-                           </children></AnchorPane>
-                  </content>
-                </Tab>
-                  <Tab text="Monthly">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="247.0" prefWidth="268.0" style="-fx-background-color: #ead6e7#ead6e7;">
-                           <children>
-                              <TableView layoutX="10.0" layoutY="6.0" prefHeight="232.0" prefWidth="258.0">
-                                <columns>
-                                  <TableColumn prefWidth="75.0" text="C1" />
-                                  <TableColumn prefWidth="75.0" text="C2" />
-                                </columns>
-                              </TableView>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </Tab>
-              </tabs>
-            </TabPane>
-            <TitledPane animated="false" layoutX="306.0" layoutY="238.0" prefHeight="109.0" prefWidth="92.0" style="-fx-background-color: #a8549c#a8549c;" text="Notes" />
-            <Button fx:id="SecondaryToGantt" layoutX="307.0" layoutY="69.0" mnemonicParsing="false" onAction="#switchToFifth" prefHeight="19.0" prefWidth="34.0" text="GO!" textFill="#0d0d0d">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </Button>
-            <Text fill="#140101" layoutX="281.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREATE A GANTT CHART" textAlignment="CENTER" wrappingWidth="88.75270467167218">
-               <font>
-                  <Font size="12.0" />
-               </font>
-            </Text>
+            <TitledPane animated="false" layoutX="298.0" layoutY="14.0" prefHeight="109.0" prefWidth="92.0" style="-fx-background-color: #a8549c#a8549c;" text="Notes" />
+            <TableView layoutX="12.0" layoutY="169.0" prefHeight="200.0" prefWidth="386.0">
+               <columns>
+                  <TableColumn prefWidth="50.0" text="SUN" />
+                  <TableColumn prefWidth="54.0" text="MON" />
+                  <TableColumn prefWidth="56.0" text="TUE" />
+                  <TableColumn prefWidth="70.0" text="WED" />
+                  <TableColumn prefWidth="52.0" text="THU" />
+                  <TableColumn prefWidth="45.0" text="FRI" />
+                  <TableColumn prefWidth="59.0" text="SAT" />
+               </columns>
+            </TableView>
          </children>
       </AnchorPane>
     <AnchorPane layoutX="443.0" layoutY="27.0" minHeight="0.0" minWidth="0.0" prefHeight="446.0" prefWidth="349.0" style="-fx-background-color: #ead6e7#ead6e7;">
@@ -150,5 +103,15 @@
             </Button>
          </children>
       </AnchorPane>
+      <Text fill="#140101" layoutX="367.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREATE A GANTT CHART" textAlignment="CENTER" wrappingWidth="88.75270467167218">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Button fx:id="SecondaryToGantt" layoutX="394.0" layoutY="553.0" mnemonicParsing="false" onAction="#switchToFifth" prefHeight="19.0" prefWidth="34.0" text="GO!" textFill="#0d0d0d">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

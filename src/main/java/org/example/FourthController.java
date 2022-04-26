@@ -2,6 +2,7 @@ package org.example;
 
 // "MY TASKS" TAB
 
+import com.sun.glass.ui.Clipboard;
 import com.sun.javafx.sg.prism.NGGroup;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
@@ -48,7 +49,8 @@ public class FourthController {
     public TableColumn completedColumn;
 
     private NGGroup root;
-
+    private Object courseChoiceBox;
+    ObservableList<Course> courses = FXCollections.observableArrayList();
 
     public void initialize() throws IOException {
         taskColumn.setCellValueFactory(new PropertyValueFactory<Task,String>("taskName"));
@@ -76,15 +78,72 @@ public class FourthController {
         App.setRoot("primary");
     }
 
-    public ArrayList <Task> task = new ArrayList<>();
 
     public void addTaskAction(ActionEvent actionEvent) {
         makeDialog();
     }
 
     public void makeCourse(){
+        makeCourseDialog();
 
     }
+    public void makeCourseDialog(){
+
+        Dialog<Task> dialog = new Dialog<>();
+        dialog.initModality(Modality.NONE);
+        Stage stage = (Stage) App.getScene().getWindow();
+        dialog.initOwner(stage);
+
+        //start making the stuff in the dialog
+        dialog.setTitle("New Course");
+        DialogPane dialogPane = dialog.getDialogPane();
+        dialogPane.getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+        Label titleLabel = new Label("My title label");
+
+        Label courseLabel = new Label("Course name");
+        TextField courseNameBox = new TextField("");
+
+        Label teacherLabel = new Label("Teacher");
+        TextField teacherNameBox = new TextField("");
+
+
+        //add all the labels and text fields etc...
+        dialogPane.setContent(new VBox(titleLabel, courseLabel, courseNameBox, teacherLabel, teacherNameBox));
+        //make an ok button
+        final Button btOk = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
+        //Create what you want it to do when you click the button
+
+        btOk.addEventFilter(
+                ActionEvent.ACTION,
+                event -> {
+                    if(!(courseNameBox.getText().equals("") && !teacherNameBox.getText().equals("")))
+                    // if all your fields and things ARENT EMPTY
+                    {
+                        //read them all text fields and make a new object. Add it to your list of objects for the courses.
+                        //courses.add(new Course(courseNameBox.getText(), teacherNameBox.getText()));
+
+                        courses.add(new Course(courseNameBox.getText(),teacherNameBox.getText()));
+
+                    }else{ //else if some text field is empty or incorrect. give them an error message
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Incorrect input");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Make sure everything is filled in correctly.");
+                        alert.showAndWait();
+                        event.consume(); //consume the ok button event so it doesn't close the dialog.
+                    }
+
+
+                });
+
+        Optional<Task> optionalResult = dialog.showAndWait(); //show the dialog.
+    }
+
+    private void saveJson(ActionEvent actionEvent) {
+    }
+
+
     public void makeDialog(){
         Dialog<Task> dialog = new Dialog<>();
         dialog.initModality(Modality.NONE);
@@ -116,25 +175,23 @@ public class FourthController {
         Label courseLabel = new Label("Course");
         ChoiceBox courseChoiceBox = new ChoiceBox();
 
-        courseChoiceBox.getItems().add("Choice 1");
-        courseChoiceBox.getItems().add("Choice 2");
-        courseChoiceBox.getItems().add("Choice 3");
+        courseChoiceBox.getItems().addAll(courses);
         courseChoiceBox.getItems().add("Create new course");
-        HBox hbox = new HBox(courseChoiceBox);
-
 
 
         String value = (String) courseChoiceBox.getValue();
         courseChoiceBox.setOnAction((event) -> {
             if(courseChoiceBox.getSelectionModel().getSelectedIndex()== courseChoiceBox.getHeight())
                 makeCourse();
-
+            System.out.println(courses.size());
 
             int selectedIndex = courseChoiceBox.getSelectionModel().getSelectedIndex();
             Object selectedItem = courseChoiceBox.getSelectionModel().getSelectedItem();
 
-            System.out.println("Selection made: [" + selectedIndex + "] " + selectedItem);
-            System.out.println(" CourseChoiceBox.getValue(): " + courseChoiceBox.getValue());
+            //System.out.println("Selection made: [" + selectedIndex + "] " + selectedItem);
+            //System.out.println(" CourseChoiceBox.getValue(): " + courseChoiceBox.getValue());
+            /////courseChoiceBox.getSelectionModel().
+        makeCourseDialog();
         });
 
 
