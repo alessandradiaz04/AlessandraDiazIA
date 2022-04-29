@@ -217,7 +217,7 @@ public class FourthController {
                     {
                         LocalDate date = LocalDate.of(2022, Month.APRIL, 8);
                         //read them all text fields and make a new object. Add it to your list of objects for the courses.
-                        tasks.add(new Task(taskNameBox.getText(), (int) slider.getValue(), (String) courseChoiceBox.getValue(), (LocalDate) datePicker.getUserData(), (LocalDate) datePickerTwo.getUserData()));
+                        tasks.add(new Task(taskNameBox.getText(), (int) slider.getValue(), (Course) courseChoiceBox.getValue(), (LocalDate) datePicker.getUserData(), (LocalDate) datePickerTwo.getUserData()));
                         /**
                          try {
                          saveJson(new ActionEvent()); //try to save the json again so it keeps the new course.

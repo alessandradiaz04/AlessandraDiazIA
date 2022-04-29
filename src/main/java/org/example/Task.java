@@ -6,12 +6,12 @@ import java.time.LocalDate;
 public class Task {
     String taskName;
     int urgency;
-    String course;
+    Course course;
     LocalDate givenDate;
     LocalDate dueDate;
 
 
-    public Task(String taskName,int urgency, String course,LocalDate givenDate, LocalDate dueDate) {
+    public Task(String taskName,int urgency, Course course,LocalDate givenDate, LocalDate dueDate) {
         this.taskName = taskName;
         this.urgency = urgency;
         this.course = course;
@@ -27,7 +27,7 @@ public class Task {
     public int getUrgency() {
         return urgency;
     }
-    public String getCourse() {
+    public Course getCourse() {
         return course;
     }
     public LocalDate getGivenDate() {
