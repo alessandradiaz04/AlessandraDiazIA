@@ -40,7 +40,6 @@ import java.util.Optional;
 public class FourthController {
 
     public TableView taskTable;
-    private static ObservableList<Task> tasks = FXCollections.observableArrayList();
     public TableColumn taskColumn;
     public TableColumn urgencyColumn;
     public TableColumn courseColumn;
@@ -49,7 +48,6 @@ public class FourthController {
     public TableColumn completedColumn;
 
     private NGGroup root;
-    ObservableList<Course> courses = FXCollections.observableArrayList();
 
     public void initialize() throws IOException {
         taskColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskName"));
@@ -58,7 +56,7 @@ public class FourthController {
         givenDateColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("givenDate"));
         dueDateColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("dueDate"));
         completedColumn.setCellFactory(CheckBoxTableCell.forTableColumn(completedColumn));
-        taskTable.setItems(tasks);
+        taskTable.setItems(App.tasks);
         taskTable.setEditable(true);
 
         taskColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -119,7 +117,7 @@ public class FourthController {
                         //read them all text fields and make a new object. Add it to your list of objects for the courses.
                         //courses.add(new Course(courseNameBox.getText(), teacherNameBox.getText()));
 
-                        courses.add(new Course(courseNameBox.getText(), teacherNameBox.getText()));
+                        App.courses.add(new Course(courseNameBox.getText(), teacherNameBox.getText()));
 
                     } else { //else if some text field is empty or incorrect. give them an error message
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -171,10 +169,10 @@ public class FourthController {
         Label courseLabel = new Label("Course");
         ChoiceBox courseChoiceBox = new ChoiceBox();
 
-        courseChoiceBox.getItems().addAll(courses);
+        courseChoiceBox.getItems().addAll(App.courses);
         courseChoiceBox.getItems().add("Create new course");
 
-        System.out.println(courses);
+        System.out.println(App.courses);
 
         String value = (String) courseChoiceBox.getValue();
         courseChoiceBox.setOnAction((event) -> {
@@ -188,7 +186,7 @@ public class FourthController {
                 //System.out.println(" CourseChoiceBox.getValue(): " + courseChoiceBox.getValue());
                 /////courseChoiceBox.getSelectionModel().
                 courseChoiceBox.getItems().clear();
-                courseChoiceBox.getItems().addAll(courses);
+                courseChoiceBox.getItems().addAll(App.courses);
                 courseChoiceBox.getItems().add("Create new course");
             }
         });
@@ -217,7 +215,7 @@ public class FourthController {
                     {
                         LocalDate date = LocalDate.of(2022, Month.APRIL, 8);
                         //read them all text fields and make a new object. Add it to your list of objects for the courses.
-                        tasks.add(new Task(taskNameBox.getText(), (int) slider.getValue(), (Course) courseChoiceBox.getValue(), (LocalDate) datePicker.getUserData(), (LocalDate) datePickerTwo.getUserData()));
+                        App.tasks.add(new Task(taskNameBox.getText(), (int) slider.getValue(), (Course) courseChoiceBox.getValue(), (LocalDate) datePicker.getUserData(), (LocalDate) datePickerTwo.getUserData()));
                         /**
                          try {
                          saveJson(new ActionEvent()); //try to save the json again so it keeps the new course.

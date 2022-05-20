@@ -37,13 +37,13 @@
             <TitledPane animated="false" layoutX="298.0" layoutY="14.0" prefHeight="109.0" prefWidth="92.0" style="-fx-background-color: #a8549c#a8549c;" text="Notes" />
             <TableView layoutX="12.0" layoutY="169.0" prefHeight="200.0" prefWidth="386.0">
                <columns>
-                  <TableColumn prefWidth="50.0" text="SUN" />
-                  <TableColumn prefWidth="54.0" text="MON" />
-                  <TableColumn prefWidth="56.0" text="TUE" />
-                  <TableColumn prefWidth="70.0" text="WED" />
-                  <TableColumn prefWidth="52.0" text="THU" />
-                  <TableColumn prefWidth="45.0" text="FRI" />
-                  <TableColumn prefWidth="59.0" text="SAT" />
+                  <TableColumn fx:id="sundayColumn" prefWidth="50.0" text="SUN" />
+                  <TableColumn fx:id="mondayColumn" prefWidth="54.0" text="MON" />
+                  <TableColumn fx:id="tuesdayColumn" prefWidth="56.0" text="TUE" />
+                  <TableColumn fx:id="wednesdayColumn" prefWidth="70.0" text="WED" />
+                  <TableColumn fx:id="thursdayColumn" prefWidth="52.0" text="THU" />
+                  <TableColumn fx:id="fridayColumn" prefWidth="45.0" text="FRI" />
+                  <TableColumn fx:id="saturdayColumn" prefWidth="59.0" text="SAT" />
                </columns>
             </TableView>
          </children>

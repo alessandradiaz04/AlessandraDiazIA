@@ -37,7 +37,9 @@ public class Task {
         return dueDate;
     }
 
-
-
+@Override
+    public String toString() {
+        return taskName;
+    }
 }
 
