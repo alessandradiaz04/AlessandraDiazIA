@@ -31,6 +31,8 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -64,7 +66,6 @@ public class FourthController {
 
     }
 
-
     @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("secondary");
@@ -79,7 +80,6 @@ public class FourthController {
     public void addTaskAction(ActionEvent actionEvent) {
         makeDialog();
     }
-
 
     public void makeCourseDialog() {
 
@@ -208,6 +208,8 @@ public class FourthController {
         System.out.println(courseChoiceBox.getSelectionModel().getSelectedIndex());
         System.out.println(datePicker.getValue());
 
+
+
         btOk.addEventFilter(
                 ActionEvent.ACTION,
                 event -> {
@@ -215,7 +217,8 @@ public class FourthController {
                     {
                         LocalDate date = LocalDate.of(2022, Month.APRIL, 8);
                         //read them all text fields and make a new object. Add it to your list of objects for the courses.
-                        App.tasks.add(new Task(taskNameBox.getText(), (int) slider.getValue(), (Course) courseChoiceBox.getValue(), (LocalDate) datePicker.getUserData(), (LocalDate) datePickerTwo.getUserData()));
+                        App.tasks.add(new Task(taskNameBox.getText(), (int) slider.getValue(), (Course) courseChoiceBox.getValue(), (LocalDate) datePicker.getValue(), (LocalDate) datePickerTwo.getValue()));
+
                         /**
                          try {
                          saveJson(new ActionEvent()); //try to save the json again so it keeps the new course.
@@ -239,6 +242,11 @@ public class FourthController {
 
     public void edit(ActionEvent event) {
 
+    }
+    @FXML
+    public void openLink(ActionEvent actionEvent) throws URISyntaxException, IOException {
+        System.out.println("Link clicked!");
+        Desktop.getDesktop().browse(new URI("https://pomofocus.io/"));
     }
 
 

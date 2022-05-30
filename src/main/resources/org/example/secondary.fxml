@@ -2,116 +2,136 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #f8f1f7#f8f1f7;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.SecondaryController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e5e4e2#e5e4e2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.SecondaryController">
    <children>
-      <ProgressBar layoutX="179.0" layoutY="539.0" prefHeight="11.0" prefWidth="162.0" progress="0.0" />
-      <Button layoutX="493.0" layoutY="519.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="158.0" style="-fx-background-color: #773b6f#773b6f;" text="POMODORO TIMER" textFill="#e2c5de">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Text layoutX="60.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TASK PROGRESS" underline="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e4e2" height="605.0" stroke="#ffffff00" strokeType="INSIDE" width="172.0" />
+      <ProgressBar layoutX="378.0" layoutY="463.0" prefHeight="11.0" prefWidth="162.0" progress="0.0" />
+      <Text layoutX="241.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TASK PROGRESS" underline="true">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Circle fill="#e1e1e1" layoutX="701.0" layoutY="538.0" radius="24.0" stroke="#a17f9a" strokeType="INSIDE" />
-    <AnchorPane layoutX="20.0" layoutY="51.0" minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="410.0" style="-fx-background-color: #f2e6f1#f2e6f1;">
+      <AnchorPane layoutX="169.0" layoutY="80.0" minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="628.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Text layoutX="16.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's get things done!" underline="true" wrappingWidth="198.0322265625">
+            <GridPane fx:id="calendarTable" layoutX="26.0" layoutY="76.0" prefHeight="417.0" prefWidth="564.0" style="-fx-grid-lines-visible: true;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints fillHeight="false" minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <Button fx:id="nextBtn" layoutX="266.0" layoutY="25.0" mnemonicParsing="false" onAction="#nextMonthBtn" style="-fx-background-color: #d7d7d7#d7d7d7;" text="Next" textFill="#7c7c7c">
                <font>
-                  <Font name="Monaco" size="24.0" />
-               </font>
-            </Text>
-            <TitledPane animated="false" layoutX="298.0" layoutY="14.0" prefHeight="109.0" prefWidth="92.0" style="-fx-background-color: #a8549c#a8549c;" text="Notes" />
-            <TableView layoutX="12.0" layoutY="169.0" prefHeight="200.0" prefWidth="386.0">
-               <columns>
-                  <TableColumn fx:id="sundayColumn" prefWidth="50.0" text="SUN" />
-                  <TableColumn fx:id="mondayColumn" prefWidth="54.0" text="MON" />
-                  <TableColumn fx:id="tuesdayColumn" prefWidth="56.0" text="TUE" />
-                  <TableColumn fx:id="wednesdayColumn" prefWidth="70.0" text="WED" />
-                  <TableColumn fx:id="thursdayColumn" prefWidth="52.0" text="THU" />
-                  <TableColumn fx:id="fridayColumn" prefWidth="45.0" text="FRI" />
-                  <TableColumn fx:id="saturdayColumn" prefWidth="59.0" text="SAT" />
-               </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
-    <AnchorPane layoutX="443.0" layoutY="27.0" minHeight="0.0" minWidth="0.0" prefHeight="446.0" prefWidth="349.0" style="-fx-background-color: #ead6e7#ead6e7;">
-         <children>
-            <Button fx:id="tasksButton" layoutX="18.0" layoutY="46.0" mnemonicParsing="false" onAction="#switchToFourth" text="MY TASKS">
+                  <Font name="Malayalam MN" size="13.0" />
+               </font></Button>
+            <Button fx:id="previousBtn" layoutX="40.0" layoutY="25.0" mnemonicParsing="false" onAction="#previousMonthBtn" style="-fx-background-color: #d7d7d7#d7d7d7;" text="Previous" textFill="#7c7c7c">
                <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Text layoutX="16.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CLICK TO ACCESS FULL VIEW OF TASKS" wrappingWidth="218.758544921875">
+                  <Font name="Malayalam MN" size="13.0" />
+               </font></Button>
+            <Label fx:id="monthLbl" alignment="CENTER" layoutX="123.0" layoutY="21.0" prefHeight="32.0" prefWidth="128.0" text="MONTH" textAlignment="CENTER">
                <font>
-                  <Font size="12.0" />
-               </font>
-            </Text>
-            <ListView layoutX="20.0" layoutY="98.0" prefHeight="320.0" prefWidth="195.0" />
-            <Pane layoutX="228.0" layoutY="123.0" prefHeight="117.0" prefWidth="116.0">
+                  <Font name="Malayalam MN" size="18.0" />
+               </font></Label>
+            <Pane layoutX="360.0" layoutY="13.0" prefHeight="46.0" prefWidth="238.0">
                <children>
-                  <ChoiceBox layoutX="7.0" layoutY="64.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="12.0" prefWidth="102.0" />
-                  <Text layoutX="7.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By closest due date" wrappingWidth="109.7105113337143">
+                  <ChoiceBox layoutX="84.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="12.0" prefWidth="81.0" style="-fx-background-color: #ebebeb#ebebeb;" />
+                  <Text fill="#909090" layoutX="84.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By closest due date" wrappingWidth="109.7105113337143">
                      <font>
-                        <Font size="12.0" />
+                        <Font size="10.0" />
                      </font>
                   </Text>
-                  <Text layoutX="6.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By course">
+                  <Text fill="#909090" layoutX="6.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By course">
                      <font>
-                        <Font size="12.0" />
+                        <Font size="10.0" />
                      </font>
                   </Text>
-                  <Button layoutX="42.0" layoutY="85.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Filter">
+                  <Button layoutX="175.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: #f2f2f2#f2f2f2;" text="Filter" textFill="#979797">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Button>
-                  <ChoiceBox layoutX="6.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="12.0" prefWidth="102.0" />
+                  <ChoiceBox layoutX="6.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="12.0" prefWidth="71.0" style="-fx-background-color: #ebebeb#ebebeb;" />
                </children>
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="7.0" layoutY="8.0" prefHeight="30.0" prefWidth="308.0">
+      <AnchorPane layoutX="7.0" layoutY="8.0" prefHeight="30.0" prefWidth="91.0">
          <children>
-            <Button fx:id="secondaryButton" layoutX="1.0" layoutY="2.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="27.0" prefWidth="95.0" style="-fx-background-color: #a8549c#a8549c;" text="Home" textFill="WHITE">
+            <Button fx:id="secondaryButton" layoutX="-8.0" layoutY="-10.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="96.0" prefWidth="171.0" style="-fx-background-color: #A9A9A9#A9A9A9;" text="Home" textFill="WHITE">
                <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="100.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="99.0" style="-fx-background-color: #a8549c#a8549c;" text="Organization" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="SecondaryToMindfulness" layoutX="203.0" layoutY="2.0" mnemonicParsing="false" onAction="#switchToThird" prefHeight="27.0" prefWidth="99.0" style="-fx-background-color: #a8549c#a8549c;" text="Mindfulness" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
+                  <Font name="Malayalam MN" size="20.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <Text fill="#140101" layoutX="367.0" layoutY="518.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREATE A GANTT CHART" textAlignment="CENTER" wrappingWidth="88.75270467167218">
+      <Button fx:id="SecondaryToGantt" layoutX="311.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchToFifth" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #D3D3D3#D3D3D3 #D3D3D3#D3D3D3;" text="GO!" textFill="#0d0d0d">
          <font>
-            <Font size="12.0" />
-         </font>
-      </Text>
-      <Button fx:id="SecondaryToGantt" layoutX="394.0" layoutY="553.0" mnemonicParsing="false" onAction="#switchToFifth" prefHeight="19.0" prefWidth="34.0" text="GO!" textFill="#0d0d0d">
-         <font>
-            <Font size="9.0" />
+            <Font name="Malayalam MN" size="17.0" />
          </font>
       </Button>
+      <Text fill="#a4a4a4" layoutX="476.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CLICK TO ACCESS FULL VIEW OF TASKS" textAlignment="JUSTIFY" wrappingWidth="127.71882049891292">
+         <font>
+            <Font name="Malayalam MN" size="11.0" />
+         </font>
+      </Text>
+      <Button fx:id="tasksButton" layoutX="620.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchToFourth" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #C0C0C0#C3C0C0 #C0C0C0#C3C0C0;" text="MY TASKS">
+         <font>
+            <Font name="Malayalam MN" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="-1.0" layoutY="95.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="171.0" style="-fx-background-color: #C0C0C0#C3C0C0;" text="Organization" textFill="WHITE">
+         <font>
+            <Font name="Malayalam MN" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="SecondaryToMindfulness" layoutX="-1.0" layoutY="192.0" mnemonicParsing="false" onAction="#switchToThird" prefHeight="96.0" prefWidth="171.0" style="-fx-background-color: #D3D3D3#D3D3D3;" text="Mindfulness" textFill="WHITE">
+         <font>
+            <Font name="Malayalam MN" size="20.0" />
+         </font>
+      </Button>
+      <Text fill="#686868" layoutX="16.0" layoutY="345.0" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's get things done for today" textAlignment="CENTER" wrappingWidth="140.3684329952231">
+         <font>
+            <Font name="Malayalam MN" size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#a4a4a4" layoutX="213.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREATE A GANTT CHART" textAlignment="JUSTIFY" wrappingWidth="80.89192133664966">
+         <font>
+            <Font name="Malayalam MN" size="11.0" />
+         </font>
+      </Text>
+      <Circle fill="#e1e1e1" layoutX="86.0" layoutY="494.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="38.0" layoutX="9.0" layoutY="531.0" stroke="WHITE" strokeType="INSIDE" width="152.0" />
+      <Hyperlink layoutX="19.0" layoutY="535.0" onAction="#openLink" style="-fx-background-color: #ffffff;" text="POMODORO TIMER" textFill="#686868">
+         <font>
+            <Font name="Myanmar MN" size="13.0" />
+         </font>
+      </Hyperlink>
+
    </children>
 </AnchorPane>

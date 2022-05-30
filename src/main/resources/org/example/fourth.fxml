@@ -1,43 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.FourthController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #dddddd#dddddd;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.FourthController">
     <children>
-        <Button layoutX="533.0" layoutY="518.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="158.0" text="POMODORO TIMER">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e4e2" height="605.0" layoutX="-1.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" width="172.0" />
+        <Button fx:id="fourthToPrimary" layoutY="-3.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="96.0" prefWidth="171.0" style="-fx-background-color: #A9A9A9#A9A9A9 #A9A9A9#A9A9A9;" text="Home" textFill="WHITE">
             <font>
-                <Font size="14.0" />
+                <Font name="Myanmar MN" size="20.0" />
             </font>
         </Button>
-        <Circle fill="#e1e1e1" layoutX="741.0" layoutY="537.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
-        <Button fx:id="fourthToPrimary" layoutX="10.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="27.0" prefWidth="95.0" text="Home">
+        <Button fx:id="fourth" layoutY="92.0" mnemonicParsing="false" onAction="#switchToSecondary" prefHeight="96.0" prefWidth="171.0" style="-fx-background-color: #C0C0C0#C3C0C0 #C0C0C0#C3C0C0;" text="Organization" textFill="WHITE">
             <font>
-                <Font size="14.0" />
+                <Font name="Myanmar MN" size="20.0" />
             </font>
         </Button>
-        <Button fx:id="fourth" layoutX="111.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Organization">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Button>
-        <TableView fx:id="taskTable" layoutX="20.0" layoutY="92.0" prefHeight="409.0" prefWidth="678.0" AnchorPane.bottomAnchor="99.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="92.0">
+        <TableView fx:id="taskTable" layoutX="179.0" layoutY="15.0" prefHeight="489.0" prefWidth="598.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="179.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="15.0">
             <columns>
-                <TableColumn fx:id="taskColumn" prefWidth="217.78722381591797" text="Task" />
-                <TableColumn fx:id="urgencyColumn" minWidth="6.2188568115234375" prefWidth="64.1990966796875" text="Urgency" />
-                <TableColumn fx:id="courseColumn" prefWidth="105.01980590820312" text="Course" />
-                <TableColumn fx:id="givenDateColumn" prefWidth="80.89974975585938" text="Given date" />
-                <TableColumn fx:id="dueDateColumn" prefWidth="82.36627197265625" text="Due date" />
-                <TableColumn fx:id="completedColumn" prefWidth="79.0" text="Completed?" />
+                <TableColumn fx:id="taskColumn" prefWidth="160.24688720703125" text="Task" />
+                <TableColumn fx:id="urgencyColumn" minWidth="6.2188568115234375" prefWidth="54.55511474609375" text="Urgency" />
+                <TableColumn fx:id="courseColumn" prefWidth="123.38345336914062" text="Course" />
+                <TableColumn fx:id="givenDateColumn" prefWidth="79.11654663085938" text="Given date" />
+                <TableColumn fx:id="dueDateColumn" prefWidth="91.61663818359375" text="Due date" />
+                <TableColumn fx:id="completedColumn" prefWidth="87.9178466796875" text="Completed?" />
             </columns>
         </TableView>
-        <Button fx:id="addTaskButton" layoutX="624.0" layoutY="48.0" mnemonicParsing="false" onAction="#addTaskAction" text="ADD TASK" />
-        <Text layoutX="83.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MY TASKS" />
-      <Button fx:id="editButton" layoutX="714.0" layoutY="268.0" mnemonicParsing="false" onAction="#edit" text="Edit" />
+        <Button fx:id="addTaskButton" layoutX="254.0" layoutY="530.0" mnemonicParsing="false" onAction="#addTaskAction" prefHeight="43.0" prefWidth="366.0" style="-fx-background-color: #ffffff;" text="ADD TASK" textFill="#6b6b6b">
+         <font>
+            <Font name="Myanmar MN" size="20.0" />
+         </font></Button>
+      <Button fx:id="editButton" layoutX="656.0" layoutY="533.0" mnemonicParsing="false" onAction="#edit" style="-fx-background-color: #C0C0C0#C3C0C0 #C0C0C0#C3C0C0 #C0C0C0#C3C0C0 #C0C0C0#C3C0C0;" text="Edit" textFill="WHITE">
+         <font>
+            <Font name="Myanmar MN" size="18.0" />
+         </font></Button>
+      <Text fill="#686868" layoutX="32.0" layoutY="317.0" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Tasks" textAlignment="CENTER" wrappingWidth="100.66986438102106">
+         <font>
+            <Font name="Malayalam MN" size="30.0" />
+         </font>
+      </Text>
+      <Circle fill="#e1e1e1" layoutX="86.0" layoutY="494.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="38.0" layoutX="7.0" layoutY="529.0" stroke="WHITE" strokeType="INSIDE" width="152.0" />
+      <Hyperlink layoutX="19.0" layoutY="535.0" onAction="#openLink" style="-fx-background-color: #ffffff;" text="POMODORO TIMER" textFill="#686868">
+         <font>
+            <Font name="Myanmar MN" size="13.0" />
+         </font>
+      </Hyperlink>
     </children>
 </AnchorPane>
