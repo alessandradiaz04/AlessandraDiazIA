@@ -33,9 +33,7 @@ public class Task {
     public LocalDate getGivenDate() {
         return givenDate;
     }
-    public LocalDate getDueDate() {
-        return dueDate;
-    }
+    public LocalDate getDueDate() { return dueDate; }
 
 @Override
     public String toString() {

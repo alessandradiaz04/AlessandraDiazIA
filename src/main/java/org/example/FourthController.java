@@ -50,6 +50,7 @@ public class FourthController {
     public TableColumn completedColumn;
 
     private NGGroup root;
+    private Object checkBox;
 
     public void initialize() throws IOException {
         taskColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskName"));
@@ -125,10 +126,9 @@ public class FourthController {
                         alert.setHeaderText(null);
                         alert.setContentText("Make sure everything is filled in correctly.");
                         alert.showAndWait();
-                        event.consume(); //consume the ok button event so it doesn't close the dialog.
+                        event.consume(); //consume the ok button event so it doesn't close the dialog
+
                     }
-
-
                 });
 
         Optional<Task> optionalResult = dialog.showAndWait(); //show the dialog.
