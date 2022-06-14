@@ -108,3 +108,5 @@ public class ThirdController {
 
 
 
+// thank you for checking in! dialogue box after pressing emoticon
+// activity output after scale

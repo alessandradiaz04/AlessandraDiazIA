@@ -27,8 +27,7 @@ public class Task {
     public int getUrgency() {
         return urgency;
     }
-    public Course getCourse() {
-        return course;
+    public Course getCourse() { return course;
     }
     public LocalDate getGivenDate() {
         return givenDate;
@@ -39,5 +38,6 @@ public class Task {
     public String toString() {
         return taskName;
     }
+
 }
 

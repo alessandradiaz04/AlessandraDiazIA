@@ -19,10 +19,11 @@ import java.util.Locale;
 
 public class FifthController {
 
-    public static GridPane ganttChartGridPane;
+    public GridPane ganttChartGridPane;
+    private Object Task;
 
 
-    public static void Initialize() {
+    public void initialize() {
         int weekNumber  = 1;
         int month = 1;
         ganttChartGridPane.getColumnConstraints().remove(0);
@@ -48,9 +49,11 @@ public class FifthController {
             StackPane myStackPane = new StackPane(); //create a stackpane to add items (background color, and the label)
             GridPane.setFillHeight(myStackPane, true); //labels have a background colour but won't fill the cell.
             GridPane.setFillWidth(myStackPane, true);
+
             Label weekLabel = new Label("Week"+weekNumber);
             myStackPane.getChildren().add(weekLabel);
-            if(weekNumber == weekNumberToday){
+            if(weekNumber == weekNumberToday-1){
+
                 myStackPane.setStyle("-fx-background-color:blue;"); //sets this week to blue
             }
             ganttChartGridPane.add(myStackPane,i,0);
@@ -61,22 +64,45 @@ public class FifthController {
         for (Task t: App.tasks) {
             RowConstraints taskRow = new RowConstraints(25); //height of row in pixels
             ganttChartGridPane.getRowConstraints().add(taskRow);
-            ganttChartGridPane.add(new Label(t.getTaskName()),0,tCounter);
-            tCounter++;
+            ganttChartGridPane.add(new Label(t.getTaskName()), 0, tCounter);
+
 
             StackPane myStackPane = new StackPane(); //create a stackpane for the cell colour
             GridPane.setFillHeight(myStackPane, true); //the stackpane fills the grid cell
             GridPane.setFillWidth(myStackPane, true);
 
-            myStackPane.setStyle("-fx-background-color:gray;");
+            String color = "";
+            switch(t.getUrgency()) {  //get urgency value from Task class, color code based on urgency: 1-2 green, 3-4 yellow, 5 red
+
+                case 1:
+                case 2:
+                    color = "-fx-background-color:green;";
+                    break;
+                case 3:
+                case 4:
+                    color = "-fx-background-color:yellow;";
+                    break;
+                case 5:
+                    color = "-fx-background-color:red;";
+                    break;
+                default:
+                    color = "-fx-background-color:white;";
+            }
+
+            myStackPane.setStyle(color);
+
+            
             LocalDate taskDate = t.getDueDate();//THIS NEEDS TO BE A WEEK NUMBER OF YEAR
             TemporalField woy2 = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
-            int weekNumberToday2 = taskDate.get(woy2);
-            ganttChartGridPane.add(myStackPane,weekNumberToday2,0);
+            int weekNumberToday2 = taskDate.get(woy2)-1;
+
+            ganttChartGridPane.add(myStackPane,weekNumberToday2,tCounter);
+            tCounter++;
             weekNumber++;
 
         }
     }
+
     @FXML
     private void switchToSecondary() throws IOException {
         App.setRoot("secondary");
