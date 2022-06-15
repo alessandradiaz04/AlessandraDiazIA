@@ -32,8 +32,8 @@ public class ThirdController {
     public TableColumn eventDateColumn;
 
     public void initialize() throws IOException {
-        eventColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskName"));
-        eventDateColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("urgency"));
+        eventColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("eventName"));
+        eventDateColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("date"));
         eventTable.setItems(App.events);
         eventTable.setEditable(true);
     }
@@ -71,7 +71,7 @@ public class ThirdController {
 
 
         //add all the labels and text fields etc...
-        dialogPane.setContent(new VBox(titleLabel, eventLabel, eventDateLabel));
+        dialogPane.setContent(new VBox(titleLabel, eventLabel, eventNameBox, eventDateLabel, datePickerEvent));
         //make an ok button
         final Button btOk = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
         //Create what you want it to do when you click the button

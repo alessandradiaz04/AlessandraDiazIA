@@ -4,8 +4,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -100,46 +98,9 @@
          </font>
       </Text>
       <Circle fill="#e1e1e1" layoutX="86.0" layoutY="494.0" radius="24.0" stroke="WHITE" strokeType="INSIDE" />
-      <TabPane layoutX="179.0" layoutY="186.0" prefHeight="395.0" prefWidth="348.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Future">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="348.0" style="-fx-background-color: #ffffff;">
-                     <children>
-                        <TableView fx:id="eventTable" layoutX="1.0" layoutY="10.0" prefHeight="346.0" prefWidth="345.0">
-                          <columns>
-                            <TableColumn fx:id="eventColumn" prefWidth="150.0" text="Event" />
-                            <TableColumn fx:id="eventDateColumn" prefWidth="147.0" text="Date" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Past">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
-                     <children>
-                        <TableView fx:id="eventTable1" layoutX="1.0" layoutY="10.0" prefHeight="424.0" prefWidth="345.0">
-                           <columns>
-                              <TableColumn fx:id="eventColumn1" prefWidth="150.0" text="Event" />
-                              <TableColumn fx:id="eventDateColumn1" prefWidth="147.0" text="Date" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
       <AnchorPane layoutX="177.0" layoutY="7.0" prefHeight="166.0" prefWidth="620.0" style="-fx-background-color: #ffffff;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5f5f5" height="45.0" layoutX="28.0" layoutY="12.0" stroke="#ffffff00" strokeType="INSIDE" width="563.0" />
-            <Button fx:id="addEventBtn" layoutX="96.0" layoutY="129.0" mnemonicParsing="false" onAction="#addEventAction" prefHeight="23.0" prefWidth="114.0" style="-fx-background-color: #ffffff;" text="ADD EVENT" textFill="#515151">
-               <font>
-                  <Font size="12.0" />
-               </font>
-            </Button>
             <Text fill="#ababab" layoutX="41.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How stressed do you feel?" wrappingWidth="524.6950073242188">
                <font>
                   <Font size="24.0" />
@@ -185,5 +146,16 @@
             <Font name="Myanmar MN" size="13.0" />
          </font>
       </Hyperlink>
+      <TableView fx:id="eventTable" layoutX="181.0" layoutY="226.0" prefHeight="346.0" prefWidth="345.0">
+        <columns>
+          <TableColumn fx:id="eventColumn" prefWidth="150.0" text="Event" />
+          <TableColumn fx:id="eventDateColumn" prefWidth="147.0" text="Date" />
+        </columns>
+      </TableView>
+      <Button fx:id="addEventBtn" layoutX="387.0" layoutY="191.0" mnemonicParsing="false" onAction="#addEventAction" prefHeight="23.0" prefWidth="114.0" style="-fx-background-color: #C0C0C0#C3C0C0 #C0C0C0#C3C0C0 #C0C0C0#C3C0C0 #C0C0C0#C3C0C0;" text="ADD EVENT" textFill="#515151">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

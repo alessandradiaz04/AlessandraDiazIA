@@ -1,15 +1,20 @@
 package org.example;
 
-import java.io.IOException;
+import java.io.*;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import javafx.fxml.FXML;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
+import javafx.scene.control.TextArea;
+
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.HttpURLConnection;
 
 public class PrimaryController {
+
+    public TextArea quoteTextField;
 
     @FXML
     private void switchToSecondary() throws IOException {
@@ -21,34 +26,64 @@ public class PrimaryController {
         App.setRoot("third");
     }
 
-    public class QuoteOfTheDay {
+    public void initialize() {
+        String jsonQuote = executePost("https://zenquotes.io/api/random", "");
+        System.out.println(jsonQuote);
 
-        public void main(String[] args) throws IOException {
-            URL url = new URL("https://quotes.rest/qod?category=inspiring");
+        JsonParser parser = new JsonParser();
+        JsonElement quoteElement = parser.parse(jsonQuote);
+        JsonArray quoteArray = quoteElement.getAsJsonArray();
 
-            try{
-                //make connection
-                HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
-                urlc.setRequestMethod("GET");
-                // set the content type
-                urlc.setRequestProperty("Content-Type", "application/json");
-                urlc.setRequestProperty("X-TheySaidSo-Api-Secret", "YOUR API KEY HERE");
-                System.out.println("Connect to: " + url.toString());
-                urlc.setAllowUserInteraction(false);
-                urlc.connect();
-
-                //get result
-                BufferedReader br = new BufferedReader(new InputStreamReader(urlc.getInputStream()));
-                String l = null;
-                while ((l=br.readLine())!=null) {
-                    System.out.println(l);
-                }
-                br.close();
-            } catch (Exception e){
-                System.out.println("Error occured");
-                System.out.println(e.toString());
-            }
-        } //https://theysaidso.com/api/
+        String quote =quoteArray.get(0).getAsJsonObject().get("q").getAsString();
+        String author = quoteArray.get(0).getAsJsonObject().get("a").getAsString();
+        quoteTextField.setText(quote + " - " + author);
 
     }
+//https://stackoverflow.com/questions/1359689/how-to-send-http-request-in-java
+        public static String executePost(String targetURL, String urlParameters) {
+            HttpURLConnection connection = null;
+
+            try {
+                //Create connection
+                URL url = new URL(targetURL);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setRequestProperty("Content-Type",
+                        "application/x-www-form-urlencoded");
+
+                connection.setRequestProperty("Content-Length",
+                        Integer.toString(urlParameters.getBytes().length));
+                connection.setRequestProperty("Content-Language", "en-US");
+
+                connection.setUseCaches(false);
+                connection.setDoOutput(true);
+
+                //Send request
+                DataOutputStream wr = new DataOutputStream (
+                        connection.getOutputStream());
+                wr.writeBytes(urlParameters);
+                wr.close();
+
+                //Get Response
+                InputStream is = connection.getInputStream();
+                BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+                StringBuilder response = new StringBuilder(); // or StringBuffer if Java version 5+
+                String line;
+                while ((line = rd.readLine()) != null) {
+                    response.append(line);
+                    response.append('\r');
+                }
+                rd.close();
+                return response.toString();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            } finally {
+                if (connection != null) {
+                    connection.disconnect();
+                }
+            }
+        }
+
 }
+
