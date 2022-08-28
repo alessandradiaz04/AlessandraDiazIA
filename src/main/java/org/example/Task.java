@@ -3,15 +3,15 @@ package org.example;
 
 import java.time.LocalDate;
 
-public class Task {
-    String taskName;
+public class Task {  //All controllers can access the class / object
+    String taskName;  //Initialize variables and common attributes
     int urgency;
     Course course;
     LocalDate givenDate;
     LocalDate dueDate;
 
 
-    public Task(String taskName,int urgency, Course course,LocalDate givenDate, LocalDate dueDate) {
+    public Task(String taskName,int urgency, Course course,LocalDate givenDate, LocalDate dueDate) { //All the requirements needed to create a Task
         this.taskName = taskName;
         this.urgency = urgency;
         this.course = course;
@@ -20,7 +20,7 @@ public class Task {
 
 
     }
-
+ //GET-SET--> saves code, allows for the option  to modify  if behavior/content changes
     public String getTaskName() {
         return taskName;
     }

@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.FifthController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.GanttChartController">
     <children>
         <ScrollPane layoutX="19.0" layoutY="51.0" prefHeight="450.0" prefWidth="773.0">
             <content>
@@ -25,12 +25,12 @@
         </ScrollPane>
         <AnchorPane layoutX="7.0" layoutY="8.0" prefHeight="30.0" prefWidth="308.0">
             <children>
-                <Button layoutX="1.0" layoutY="2.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="27.0" prefWidth="95.0" text="Home">
+                <Button layoutX="1.0" layoutY="2.0" mnemonicParsing="false" onAction="#switchToWelcomePage" prefHeight="27.0" prefWidth="95.0" text="Home">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="SecondaryToGantt" layoutX="102.0" layoutY="2.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Organization">
+                <Button fx:id="SecondaryToGantt" layoutX="102.0" layoutY="2.0" mnemonicParsing="false" onAction="#switchToOrganization" text="Organization">
                     <font>
                         <Font size="14.0" />
                     </font>

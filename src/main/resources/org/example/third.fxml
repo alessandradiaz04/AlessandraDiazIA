@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e5e4e2#e5e4e2 #e5e4e2#e5e4e2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ThirdController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e5e4e2#e5e4e2 #e5e4e2#e5e4e2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MindfulnessController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5e4e2" height="605.0" layoutY="-3.0" stroke="#ffffff00" strokeType="INSIDE" width="171.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="415.0" layoutX="170.0" layoutY="177.0" stroke="#ffffff00" strokeType="INSIDE" width="367.0" />
@@ -37,36 +36,13 @@
             <CheckBox layoutX="205.0" layoutY="326.0" mnemonicParsing="false" />
             <CheckBox layoutX="205.0" layoutY="235.0" mnemonicParsing="false" />
             <CheckBox layoutX="205.0" layoutY="136.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="30.0" />
-            <ImageView fitHeight="65.0" fitWidth="64.0" layoutX="32.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../Desktop/Screen%20Shot%202022-05-30%20at%2008.31.51.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="65.0" fitWidth="64.0" layoutX="32.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../Desktop/Screen%20Shot%202022-05-30%20at%2008.32.08.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="65.0" fitWidth="64.0" layoutX="32.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../Desktop/Screen%20Shot%202022-05-30%20at%2008.33.02.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="65.0" fitWidth="64.0" layoutX="138.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../Desktop/Screen%20Shot%202022-05-30%20at%2008.33.15.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="65.0" fitWidth="64.0" layoutX="138.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../Desktop/Screen%20Shot%202022-05-30%20at%2008.32.48.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="65.0" fitWidth="64.0" layoutX="138.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../Desktop/Screen%20Shot%202022-05-30%20at%2008.33.21.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="myImageViewOne" fitHeight="71.0" fitWidth="69.0" layoutX="28.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="myImageViewTwo" fitHeight="71.0" fitWidth="69.0" layoutX="134.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="myImageViewThree" fitHeight="71.0" fitWidth="69.0" layoutX="28.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="myImageViewFour" fitHeight="71.0" fitWidth="69.0" layoutX="133.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="myImageViewFive" fitHeight="71.0" fitWidth="69.0" layoutX="28.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="myImageViewSix" fitHeight="71.0" fitWidth="69.0" layoutX="133.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true" />
+
          </children>
       </AnchorPane>
       <Text layoutX="25.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MY EVENTS">
@@ -75,14 +51,14 @@
          </font></Text>
       <AnchorPane layoutX="-1.0" layoutY="-3.0" prefHeight="98.0" prefWidth="163.0">
          <children>
-            <Button layoutY="2.0" mnemonicParsing="false" onAction="#switchToPrimary" prefHeight="96.0" prefWidth="171.0" style="-fx-background-color: #A9A9A9#A9A9A9 #A9A9A9#A9A9A9;" text="Home" textFill="WHITE">
+            <Button layoutY="2.0" mnemonicParsing="false" onAction="#switchToWelcomePage" prefHeight="96.0" prefWidth="171.0" style="-fx-background-color: #A9A9A9#A9A9A9 #A9A9A9#A9A9A9;" text="Home" textFill="WHITE">
                <font>
                   <Font name="Malayalam MN" size="20.0" />
                </font>
          </Button>
          </children>
       </AnchorPane>
-   <Button fx:id="MindfulnessToOrganizationButton" layoutX="-1.0" layoutY="95.0" mnemonicParsing="false" onAction="#switchToSecondary" prefHeight="96.0" prefWidth="171.0" style="-fx-background-color: #C0C0C0#C3C0C0 #C0C0C0#C3C0C0;" text="Organization" textFill="WHITE">
+   <Button fx:id="MindfulnessToSecondaryButton" layoutX="-1.0" layoutY="95.0" mnemonicParsing="false" onAction="#switchToOrganization" prefHeight="96.0" prefWidth="171.0" style="-fx-background-color: #C0C0C0#C3C0C0 #C0C0C0#C3C0C0;" text="Organization" textFill="WHITE">
       <font>
          <Font name="Malayalam MN" size="20.0" />
       </font>
@@ -107,7 +83,7 @@
                   <Font name="Myanmar MN" size="20.0" />
                </font>
             </Text>
-            <Slider layoutX="50.0" layoutY="109.0" prefHeight="7.0" prefWidth="531.0" />
+            <Slider fx:id="stressSlider" layoutX="50.0" layoutY="109.0" prefHeight="7.0" prefWidth="531.0" />
             <Text layoutX="29.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not stressed" wrappingWidth="78.85986328125">
                <font>
                   <Font name="Myanmar MN" size="12.0" />
@@ -128,16 +104,20 @@
                   <Font size="12.0" />
                </font>
             </Text>
-            <Text layoutX="561.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="17.5">
+            <Text layoutX="551.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" wrappingWidth="30.0">
                <font>
                   <Font size="12.0" />
                </font>
             </Text>
-            <Text layoutX="308.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="7.348632812500114">
+            <Text layoutX="307.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50" wrappingWidth="17.5">
                <font>
                   <Font size="12.0" />
                </font>
             </Text>
+            <Button layoutX="534.0" layoutY="22.0" mnemonicParsing="false" onAction="#MyStressAction" text="Submit">
+               <font>
+                  <Font name="Myanmar MN" size="12.0" />
+               </font></Button>
          </children>
       </AnchorPane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="38.0" layoutX="8.0" layoutY="531.0" stroke="WHITE" strokeType="INSIDE" width="152.0" />
@@ -148,8 +128,8 @@
       </Hyperlink>
       <TableView fx:id="eventTable" layoutX="181.0" layoutY="226.0" prefHeight="346.0" prefWidth="345.0">
         <columns>
-          <TableColumn fx:id="eventColumn" prefWidth="150.0" text="Event" />
-          <TableColumn fx:id="eventDateColumn" prefWidth="147.0" text="Date" />
+          <TableColumn fx:id="eventColumn" prefWidth="207.0" text="Event" />
+          <TableColumn fx:id="eventDateColumn" prefWidth="137.0" text="Date" />
         </columns>
       </TableView>
       <Button fx:id="addEventBtn" layoutX="387.0" layoutY="191.0" mnemonicParsing="false" onAction="#addEventAction" prefHeight="23.0" prefWidth="114.0" style="-fx-background-color: #C0C0C0#C3C0C0 #C0C0C0#C3C0C0 #C0C0C0#C3C0C0 #C0C0C0#C3C0C0;" text="ADD EVENT" textFill="#515151">

@@ -2,6 +2,8 @@ package org.example;
 
 // "MY TASKS" TAB
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.sun.glass.ui.Clipboard;
 import com.sun.javafx.sg.prism.NGGroup;
 import javafx.collections.FXCollections;
@@ -30,6 +32,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -39,7 +42,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 
-public class FourthController {
+public class TasksController {
 
     public TableView taskTable;
     public TableColumn taskColumn;
@@ -52,28 +55,28 @@ public class FourthController {
     private NGGroup root;
     private Object checkBox;
 
-    public void initialize() throws IOException {
+    public void initialize() throws IOException {  //Assign each column of the table a specific variable of the Tasks object in respective order
         taskColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("taskName"));
         urgencyColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("urgency"));
         courseColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("course"));
         givenDateColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("givenDate"));
         dueDateColumn.setCellValueFactory(new PropertyValueFactory<Task, String>("dueDate"));
-        completedColumn.setCellFactory(CheckBoxTableCell.forTableColumn(completedColumn));
+        completedColumn.setCellFactory(CheckBoxTableCell.forTableColumn(completedColumn)); //Add check box to the last column
         taskTable.setItems(App.tasks);
         taskTable.setEditable(true);
 
         taskColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        courseColumn.setCellFactory(ComboBoxTableCell.forTableColumn("Course1", "Course2", "Course3"));
+        courseColumn.setCellFactory(ComboBoxTableCell.forTableColumn("Course1", "Course2", "Course3")); //Add courses to ChoiceBox
 
     }
 
     @FXML
-    private void switchToSecondary() throws IOException {
+    private void switchToOrganization() throws IOException {
         App.setRoot("secondary");
     }
 
     @FXML
-    private void switchToPrimary() throws IOException {
+    private void switchToWelcomePage() throws IOException {
         App.setRoot("primary");
     }
 
@@ -119,7 +122,6 @@ public class FourthController {
                         //courses.add(new Course(courseNameBox.getText(), teacherNameBox.getText()));
 
                         App.courses.add(new Course(courseNameBox.getText(), teacherNameBox.getText()));
-
                     } else { //else if some text field is empty or incorrect. give them an error message
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Incorrect input");
@@ -134,7 +136,15 @@ public class FourthController {
         Optional<Task> optionalResult = dialog.showAndWait(); //show the dialog.
     }
 
-    private void saveJson(ActionEvent actionEvent) {
+    private void saveJson() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        // Java objects to File
+        try (FileWriter writer = new FileWriter("tasks.json")) {
+            gson.toJson(App.tasks, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -172,7 +182,7 @@ public class FourthController {
         courseChoiceBox.getItems().addAll(App.courses);
         courseChoiceBox.getItems().add("Create new course");
 
-        System.out.println(App.courses);
+
 
         String value = (String) courseChoiceBox.getValue();
         courseChoiceBox.setOnAction((event) -> {
@@ -204,28 +214,30 @@ public class FourthController {
         //make an ok button
         final Button btOk = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
         //Create what you want it to do when you click the button
-        System.out.println(slider.getValue());
-        System.out.println(courseChoiceBox.getSelectionModel().getSelectedIndex());
-        System.out.println(datePicker.getValue());
 
 
 
-        btOk.addEventFilter(
+
+        btOk.addEventFilter( //Adding a task when pressing the button METHOD
                 ActionEvent.ACTION,
                 event -> {
-                    if (!(taskNameBox.getText().equals("") && !(courseChoiceBox.getSelectionModel().getSelectedIndex() < 0) && datePicker != null && datePickerTwo != null))// if all your fields and things ARENT EMPTY
+                    System.out.println(taskNameBox.getText()); // Printing lines to test if the code works based on the output
+                    System.out.println(courseChoiceBox.getSelectionModel().getSelectedIndex());
+                    System.out.println(datePicker.getValue());
+                    System.out.println(datePickerTwo.getValue());
+
+                        if (!(taskNameBox.getText().equals("")))// if all fields and things ARENT EMPTY
                     {
                         LocalDate date = LocalDate.of(2022, Month.APRIL, 8);
-                        //read them all text fields and make a new object. Add it to your list of objects for the courses.
                         App.tasks.add(new Task(taskNameBox.getText(), (int) slider.getValue(), (Course) courseChoiceBox.getValue(), (LocalDate) datePicker.getValue(), (LocalDate) datePickerTwo.getValue()));
+                        //read  all text fields and make a new object. Adds it to list of objects for the courses.
 
-                        /**
                          try {
-                         saveJson(new ActionEvent()); //try to save the json again so it keeps the new course.
-                         } catch (IOException e) {
+                         saveJson(); //try to save the json again so it keeps the new course.
+                         } catch (Exception e) {
                          e.printStackTrace();
                          }
-                         **/
+
                     } else { //else if some text field is empty or incorrect. give them an error message
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Incorrect input");

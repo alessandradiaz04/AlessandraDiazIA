@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.Locale;
 
 
-public class FifthController {
+public class GanttChartController {
 
     public GridPane ganttChartGridPane;
     private Object Task;
@@ -104,11 +104,11 @@ public class FifthController {
     }
 
     @FXML
-    private void switchToSecondary() throws IOException {
+    private void switchToOrganization() throws IOException {
         App.setRoot("secondary");
     }
     @FXML
-    private void switchToPrimary() throws IOException {
+    private void switchToWelcomePage() throws IOException {
         App.setRoot("primary");
     }
 }
